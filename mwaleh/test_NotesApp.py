@@ -2,6 +2,7 @@ from unittest import TestCase
 import NotesApp
 
 class NotesAppTest (TestCase):
+	#Arbitrary Strings
 	Note1 = 'This is the first note I save in my Notes application'
 	Note2 = 'The moment I tried Python programming, I realized it wa the best thing that ever was.'
 	Note3 = 'Cultivate the habit of speaking well of others'
@@ -11,21 +12,27 @@ class NotesAppTest (TestCase):
 	Note7 = '5 + 7'
 	Note8 = '[this is a list]'
 
+	#Error Messages
+	CreateErMsg = 'The App should Add the entry specified'
+	GetErMsg = 'The App should give the user the Expected Note'
+	DelErMsg = 'The App Failed the Delete Test'
+	EditErMsg = 'The App Failed the Edit Test. Check again.'
+
 	def TestCreate1(self):
 		''' Tests the create funcion of the NotesApp '''
-		self.assertEqual(create(Note1), [Note1], 'The note was not created successfully')
+		self.assertEqual(create(Note1), [Note1], CreateErrMsg)
 
 	def TestCreate2(self):
-		self.assertEqual(create(Note2), [Note1, Note2], 'The App should Add another Entry')
+		self.assertEqual(create(Note2), [Note1, Note2], CreateErrMsg)
 
 	def TestCreate3(self):
-		self.assertEqual(create(Note3), [Note1, Note2, Note3], 'The App should Add another Entry')
+		self.assertEqual(create(Note3), [Note1, Note2, Note3], CreateErrMsg)
 
 	def TestCreate4(self):
-		self.assertEqual(create(Note7), [Note1, Note2, Note3, Note7], 'The App should Add another Entry')
+		self.assertEqual(create(Note7), [Note1, Note2, Note3, Note7], CreateErrMsg)
 
 	def TestCreate5(self):
-		self.assertEqual(create(Note8), [Note1, Note2, Note3, Note7, Note8], 'The App should Add another Entry')
+		self.assertEqual(create(Note8), [Note1, Note2, Note3, Note7, Note8], CreateErrMsg)
 
 	def TestList(self):
 		'''Tests the List function of the NotesApp '''
@@ -33,10 +40,10 @@ class NotesAppTest (TestCase):
 
 	def TestGet1(self):
 		'''Tests the Get Function '''
-		self.assertEqual(get(2), Note3, 'The App should give the third note')
+		self.assertEqual(get(2), Note3, GetErMsg)
 
 	def TestGet2(self):
-		self.assertEqual(get(25),'note with id 25 doesn\'t exist','The App should remain silent if the key is above range')
+		self.assertEqual(get(25),'note with id 25 doesn\'t exist', GetErMsg)
 
 	def TestSearch(self):
 		'''Tests the Search Function '''
@@ -45,14 +52,15 @@ class NotesAppTest (TestCase):
 	def TestDelete1(self):
 		'''Tests the Delete Function'''
 		del_list1 = NotesApplication.notes_list.remove(NotesApplication.notes_list[1])
-		self.assertEqual(delete(1),del_list1 == NotesApplication.notes_list, 'Your app failed the delete function')
+		self.assertEqual(delete(1),del_list1 == NotesApplication.notes_list, DelErMsg)
 
 	def TestDelete2(self):
-		self.assertEqual(delete(65), 'note with id 65 does\'t exist', 'Your app failed to attempt to delete what isn\'t in the notes')
+		self.assertEqual(delete(65), 'note with id 65 does\'t exist', DelErMsg)
 
-	def TestEdit(self):
+	def TestEdit1(self):
 		'''Tests the Edit function of the app '''
 		pass
 
-
-
+	def TestEdit2(self):
+		'''Tests the Edit function of the app '''
+		pass
