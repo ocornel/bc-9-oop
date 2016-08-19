@@ -11,14 +11,41 @@ class NotesAppTest (TestCase):
 	Note7 = '5 + 7'
 	Note8 = '[this is a list]'
 
-	def TestCreate(self):
+	def TestCreate1(self):
 		''' Tests the create funcion of the NotesApp '''
-		pass
+		self.assertEqual(create(Note1), [Note1], 'The note was not created successfully')
+
+	def TestCreate2(self):
+		self.assertEqual(create(Note2), [Note1, Note2], 'The App should Add another Entry')
+
+	def TestCreate3(self):
+		self.assertEqual(create(Note3), [Note1, Note2, Note3], 'The App should Add another Entry')
+
+	def TestCreate4(self):
+		self.assertEqual(create(Note7), [Note1, Note2, Note3, Note7], 'The App should Add another Entry')
+
+	def TestCreate5(self):
+		self.assertEqual(create(Note8), [Note1, Note2, Note3, Note7, Note8], 'The App should Add another Entry')
 
 	def TestList(self):
 		'''Tests the List function of the NotesApp '''
 		pass
 
 	def TestGet(self):
-		'''Tests the 
+		'''Tests the Get Function '''
+		pass
+
+	def TestSearch(self):
+		'''Tests the Search Function '''
+		pass
+
+	def TestDelete(self):
+		'''Tests the Delete Function'''
+		pass
+
+	def TestEdit(self):
+		'''Tests the Edit function of the app '''
+		pass
+
+
 
