@@ -31,17 +31,24 @@ class NotesAppTest (TestCase):
 		'''Tests the List function of the NotesApp '''
 		pass
 
-	def TestGet(self):
+	def TestGet1(self):
 		'''Tests the Get Function '''
-		pass
+		self.assertEqual(get(2), Note3, 'The App should give the third note')
+
+	def TestGet2(self):
+		self.assertEqual(get(25),'note with id 25 doesn\'t exist','The App should remain silent if the key is above range')
 
 	def TestSearch(self):
 		'''Tests the Search Function '''
 		pass
 
-	def TestDelete(self):
+	def TestDelete1(self):
 		'''Tests the Delete Function'''
-		pass
+		del_list1 = NotesApplication.notes_list.remove(NotesApplication.notes_list[1])
+		self.assertEqual(delete(1),del_list1 == NotesApplication.notes_list, 'Your app failed the delete function')
+
+	def TestDelete2(self):
+		self.assertEqual(delete(65), 'note with id 65 does\'t exist', 'Your app failed to attempt to delete what isn\'t in the notes')
 
 	def TestEdit(self):
 		'''Tests the Edit function of the app '''
